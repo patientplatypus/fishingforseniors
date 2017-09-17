@@ -1,8 +1,8 @@
 <template>
-  <div @click='submitmethod()' id="list" class="layout-padding row justify-center">
+  <div id="list" class="layout-padding row justify-center">
     <div style="max-height:100%; overflow-y: auto;">
       <q-list highlight id="qList" class="max-height:500px;" v-for="item in items.data" v-bind:style='{fontSize: "3.5vh", fontWeight: "bold"}'>
-        <q-item>
+        <q-item v-on:click="select(item._id)">
           <q-item-side>
             <q-item-tile avatar>
               <img src="http://via.placeholder.com/350x150" />
@@ -64,8 +64,10 @@ export default {
         console.log('error value is: ', error);
       })
     },
-    submitmethod(){
-      console.log("sumbitMethod clicked");
+    select: function(event) {
+        console.log(event);
+        // targetId = event.currentTarget.id;
+        // console.log(targetId); // returns 'foo'
     }
   }
 }
