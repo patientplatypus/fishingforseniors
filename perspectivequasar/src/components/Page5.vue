@@ -1,17 +1,18 @@
 <template>
-  <div id="list" class="layout-padding row justify-center">
+  <div @click='submitmethod()' id="list" class="layout-padding row justify-center">
     <div style="max-height:100%; overflow-y: auto;">
       <q-list highlight id="qList" class="max-height:500px;" v-for="item in items.data" v-bind:style='{fontSize: "3.5vh", fontWeight: "bold"}'>
         <q-item>
+          <q-item-side>
+            <q-item-tile avatar>
+              <img src="http://via.placeholder.com/350x150" />
+            </q-item-tile>
+          </q-item-side>
           <q-item-main>
              <q-item-tile label>{{item.email}}</q-item-tile>
              <q-item-tile sublabel>{{item.role}}</q-item-tile>
          </q-item-main>
-         <q-item-side>
-           <q-item-tile avatar>
-             <img src="http://via.placeholder.com/350x150" />
-           </q-item-tile>
-         </q-item-side>
+         <q-item-side right stamp="10% match" />
         </q-item>
       </q-list>
     </div>
@@ -62,6 +63,9 @@ export default {
       .catch((error)=>{
         console.log('error value is: ', error);
       })
+    },
+    submitmethod(){
+      console.log("sumbitMethod clicked");
     }
   }
 }
